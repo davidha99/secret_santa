@@ -1,0 +1,17 @@
+en:
+  simple_form:
+    "yes": "Yes"
+    "no": "No"
+    required:
+      text: "required"
+      mark: "*"
+    placeholders:
+      family:
+        name: Fam name
+    error_notification:
+      default_message: "Please review the problems below:"
+  helpers:
+    submit:
+      family:
+        create: Create Fam
+        update: Update Fam
