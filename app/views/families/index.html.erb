@@ -1,10 +1,17 @@
 <main class="container">
-  <div class="header">
-    <h1>Your Fam</h1>
-    <%= link_to "Add Fam",
-                new_family_path,
-                class: "btn btn--primary" %>
-  </div>
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="header">
+      <h1>Your Fam</h1>
+      <%= link_to "Add Fam",
+                  new_family_path,
+                  data: { turbo_frame: dom_id(Family.new) },
+                  class: "btn btn--primary" %>
+    </div>
+  <% end %>
 
-  <%= render @families %>
+  <%= turbo_frame_tag Family.new %>
+
+  <%= turbo_frame_tag "families" do %>
+    <%= render @families %>
+  <% end %>
 </main>

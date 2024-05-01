@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class FamiliesTest < ApplicationSystemTestCase
   setup do
-    @family = families(:first)
+    @family = Family.ordered.first
   end
 
   test "creating a new family" do
@@ -10,9 +10,9 @@ class FamiliesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Your Fam"
 
     click_on "Add Fam"
-    assert_selector "h1", text: "New Fam"
-
     fill_in "Name", with: "The Smiths"
+
+    assert_selector "h1", text: "Your Fam"
     click_on "Create Fam"
 
     assert_selector "h1", text: "Your Fam"
@@ -31,8 +31,6 @@ class FamiliesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Your Fam"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit Fam"
-
     fill_in "Name", with: "Updated Fam"
     click_on "Update Fam"
 

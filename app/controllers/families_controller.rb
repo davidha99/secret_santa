@@ -2,7 +2,7 @@ class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
-    @families = Family.all
+    @families = Family.ordered
   end
 
   def show
@@ -16,7 +16,10 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
 
     if @family.save
-      redirect_to families_path, notice: "Family was successfully created."
+      respond_to do |format|
+        format.html { redirect_to families_path, notice: "Family was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +38,11 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family.destroy
-    redirect_to families_path, notice: "Family was successfully destroyed."
+
+    respond_to do |format|
+      format.html { redirect_to families_path, notice: "Family was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private

@@ -1,9 +1,11 @@
 <main class="container">
-  <%= link_to sanitize("&larr; Back to quote"), family_path(@family) %>
+  <%= link_to sanitize("&larr; Back to family"), family_path(@family) %>
 
   <div class="header">
     <h1>Edit Fam</h1>
   </div>
 
-  <%= render "form", family: @family %>
+  <%= turbo_frame_tag @family do %>
+    <%= render "form", family: @family %>
+  <% end %>
 </main>

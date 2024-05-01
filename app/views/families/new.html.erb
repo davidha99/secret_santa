@@ -5,5 +5,7 @@
     <h1>New Fam</h1>
   </div>
 
-  <%= render "form", family: @family %>
+  <%= turbo_frame_tag @family do %>
+    <%= render "form", family: @family %>
+  <% end %>
 </main>
