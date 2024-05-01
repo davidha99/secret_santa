@@ -1,0 +1,16 @@
+<%= turbo_frame_tag family do %>
+  <div class="family">
+    <%= link_to family.name,
+                family_path(family),
+                data: { turbo_frame: "_top" } %>
+    <div class="family__actions">
+      <%= button_to "Delete",
+                    family_path(family),
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  edit_family_path(family),
+                  class: "btn btn--light" %>
+    </div>
+  </div>
+<% end %>

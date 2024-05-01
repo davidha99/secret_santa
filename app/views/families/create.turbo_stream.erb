@@ -1,0 +1,4 @@
+<%# <%= turbo_stream.prepend "families", partial: "families/family", locals: { family: @family } %>
+<%# same thing as below line %>
+<%= turbo_stream.prepend "families", @family %>
+<%= turbo_stream.update Family.new, "" %>
