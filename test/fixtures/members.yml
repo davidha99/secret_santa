@@ -1,8 +1,11 @@
 first:
+  family: first
   name: First member
 
 second:
+  family: first
   name: Second member
 
 third:
+  family: first
   name: Third member

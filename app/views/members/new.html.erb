@@ -1,11 +1,11 @@
 <main class="container">
-  <%= link_to sanitize("&larr; Back to members"), members_path %>
+  <%= link_to sanitize("&larr; Back to family"), family_path(@family) %>
 
   <div class="header">
     <h1>New member</h1>
   </div>
 
-  <%= turbo_frame_tag @member do %>
-    <%= render "form", member: @member %>
+  <%= turbo_frame_tag nested_dom_id(@family, Member.new) do %>
+    <%= render "form", family: @family, member: @member %>
   <% end %>
 </main>

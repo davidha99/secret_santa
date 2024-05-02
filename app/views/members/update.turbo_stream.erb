@@ -1,0 +1,5 @@
+<%= turbo_stream.replace @member do %>
+  <%= render @member, family: @family %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>

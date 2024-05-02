@@ -1,16 +1,31 @@
 <%= turbo_frame_tag family do %>
   <div class="family">
-    <%= link_to family.name,
-                family_path(family),
-                data: { turbo_frame: "_top" } %>
-    <div class="family__actions">
-      <%= button_to "Delete",
-                    family_path(family),
-                    method: :delete,
-                    class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  edit_family_path(family),
-                  class: "btn btn--light" %>
+    <%= turbo_frame_tag dom_id(family, :edit) do %>
+      <div class="family__header">
+        <h2 class="family__title">
+          <%= family.name %>
+        </h2>
+        <div class="family__actions">
+          <%= button_to "Delete", family_path(family), method: :delete, class: "btn btn--light" %>
+          <%= link_to "Edit", edit_family_path(family), class: "btn btn--light" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="family__body">
+      <div class="member member--header">
+        <div class="member__name">Members</div>
+      </div>
+
+      <%= turbo_frame_tag nested_dom_id(family, "members") do %>
+        <%= render family.members, family: family %>
+      <% end %>
+
+      <%= turbo_frame_tag nested_dom_id(family, Member.new) %>
+
+      <div class="family__footer">
+        <%= link_to "Add member", [:new, family, :member], data: { turbo_frame: nested_dom_id(family, Member.new) }, class: "btn btn--primary" %>
+      </div>
     </div>
+
   </div>
 <% end %>

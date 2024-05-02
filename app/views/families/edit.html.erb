@@ -5,7 +5,7 @@
     <h1>Edit Fam</h1>
   </div>
 
-  <%= turbo_frame_tag @family do %>
+  <%= turbo_frame_tag dom_id(@family, :edit) do %>
     <%= render "form", family: @family %>
   <% end %>
 </main>

@@ -6,6 +6,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
+    @members = @family.members.ordered
   end
 
   def new

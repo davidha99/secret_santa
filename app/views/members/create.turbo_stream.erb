@@ -1,0 +1,7 @@
+<%= turbo_stream.update nested_dom_id(@family, Member.new), "" %>
+
+<%= turbo_stream.append nested_dom_id(@family, "members") do %>
+  <%= render @member, family: @family %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>
