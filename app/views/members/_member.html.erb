@@ -1,0 +1,11 @@
+<%= turbo_frame_tag member do %>
+  <div class="member">
+    <div class="member__name">
+      <%= member.name %>
+    </div>
+    <div class="member__actions">
+      <%= button_to "Delete", [family, member], method: :delete, class: "btn btn--light" %>
+      <%= link_to "Edit", [:edit, family, member], class: "btn btn--light" %>
+    </div>
+  </div>
+<% end %>

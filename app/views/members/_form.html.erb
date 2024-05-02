@@ -1,0 +1,9 @@
+<%= simple_form_for [family, member], html: { class: "form member member--form" } do |f| %>
+  <%= form_error_notification(member) %>
+
+  <%= f.input :name, wrapper_html: { class: "member__name" }, input_html: { autofocus: true } %>
+  <div class="member__actions">
+    <%= link_to "Cancel", family_path(family), class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
+  </div>
+<% end %>

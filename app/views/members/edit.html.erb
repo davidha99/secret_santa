@@ -2,10 +2,10 @@
   <%= link_to sanitize("&larr; Back to family"), family_path(@family) %>
 
   <div class="header">
-    <h1>Edit Fam</h1>
+    <h1>Edit member</h1>
   </div>
 
-  <%= turbo_frame_tag dom_id(@family, :edit) do %>
-    <%= render "form", family: @family %>
+  <%= turbo_frame_tag @member do %>
+    <%= render "form", family: @family, member: @member %>
   <% end %>
 </main>

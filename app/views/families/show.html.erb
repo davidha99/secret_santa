@@ -4,5 +4,9 @@
     <h1>
       <%= @family.name %>
     </h1>
+
+    <%= link_to "Add member", new_family_member_path(@family), class: "btn btn--primary" %>
   </div>
+
+  <%= render @members, family: @family %>
 </main>
