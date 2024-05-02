@@ -40,6 +40,7 @@ class FamiliesController < ApplicationController
   end
 
   def destroy
+    @families = Family.all
     @family.destroy
 
     respond_to do |format|
