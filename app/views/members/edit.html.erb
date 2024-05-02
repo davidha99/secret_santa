@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to member"), member_path(@member) %>
+
+  <div class="header">
+    <h1>Edit member</h1>
+  </div>
+
+  <%= render "form", member: @member %>
+</main>

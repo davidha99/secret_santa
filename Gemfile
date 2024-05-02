@@ -77,3 +77,4 @@ end
 
 gem "simple_form", "~> 5.1.0"
 gem "solargraph"
+gem "pry"

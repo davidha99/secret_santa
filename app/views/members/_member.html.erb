@@ -1,0 +1,12 @@
+<div class="member">
+  <%= link_to member.name, member_path(member) %>
+  <div class="member__actions">
+    <%= button_to "Delete",
+                  member_path(member),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_member_path(member),
+                class: "btn btn--light" %>
+  </div>
+</div>

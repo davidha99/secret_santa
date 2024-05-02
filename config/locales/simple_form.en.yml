@@ -8,6 +8,13 @@ en:
     placeholders:
       family:
         name: Fam name
+      member:
+        name: Member name
+    labels:
+      family:
+        name: Family name
+      member:
+        name: Member name
     error_notification:
       default_message: "Please review the problems below:"
   helpers:
@@ -15,3 +22,6 @@ en:
       family:
         create: Create Fam
         update: Update Fam
+      member:
+        create: Create Member
+        update: Update Member
