@@ -17,8 +17,8 @@ class FamiliesController < ApplicationController
 
     if @family.save
       respond_to do |format|
-        format.html { redirect_to families_path, notice: "Family was successfully created." }
-        format.turbo_stream
+        format.html { redirect_to families_path, notice: "Fam was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "Fam was successfully created." }
       end
     else
       render :new, status: :unprocessable_entity
@@ -30,7 +30,10 @@ class FamiliesController < ApplicationController
 
   def update
     if @family.update(family_params)
-      redirect_to families_path, notice: "Family was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to families_path, notice: "Fam was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = "Fam was successfully updated." }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,8 +43,8 @@ class FamiliesController < ApplicationController
     @family.destroy
 
     respond_to do |format|
-      format.html { redirect_to families_path, notice: "Family was successfully destroyed." }
-      format.turbo_stream
+      format.html { redirect_to families_path, notice: "Fam was successfully destroyed." }
+      format.turbo_stream { flash.now[:notice] = "Fam was successfully destroyed." }
     end
   end
 

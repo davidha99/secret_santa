@@ -2,3 +2,4 @@
 <%# same thing as below line %>
 <%= turbo_stream.prepend "families", @family %>
 <%= turbo_stream.update Family.new, "" %>
+<%= render_turbo_stream_flash_messages %>
