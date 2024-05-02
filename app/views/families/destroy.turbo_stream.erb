@@ -1,2 +1,8 @@
 <%= turbo_stream.remove @family %>
 <%= render_turbo_stream_flash_messages %>
+
+<% unless @families.exists? %>
+  <%= turbo_stream.update Family.new do %>
+    <%= render "families/empty_state" %>
+  <% end %>
+<% end %>
