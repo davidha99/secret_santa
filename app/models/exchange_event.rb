@@ -5,16 +5,21 @@ class ExchangeEvent < ApplicationRecord
   private
 
   def run
-    graph = build_graph
-    # TODO: Call the run_event method to find a valid solution
-    # results = run_event(graph)
+    @participants = Member.includes(:family, :exchanges)
+    @graph = build_graph
+    @path = ham_cycle
+    create_exchanges
+  end
+
+  def create_exchanges
+    @path.each do |s|
+      r = @path[s + 1] || @path[0]
+      Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r])
+    end
   end
 
   def build_graph
-    # TODO: In case of implemeting user auth, this would change to:
-    # participants = Member.where(user: user).includes(:family, :given_gifts)
-    participants = Member.includes(:family, :given_gifts)
-    graph = Array.new(participants.length) { Array.new(participants.length, true) }
+    graph = Array.new(@participants.length) { Array.new(@participants.length, true) }
     # Constraints:
     graph.each_with_index do |row, i|
       row.each_with_index do |_, j|
@@ -25,22 +30,59 @@ class ExchangeEvent < ApplicationRecord
         end
 
         # 2. A family member can only be paired with the same Secret Santa once every three years.
-        exchanges = participants[i].given_gifts.pluck(:recipient_id, :created_at)
+        exchanges = @participants[i].exchanges.pluck(:recipient_id, :created_at)
         exchanges.each do |recipient_id, created_at|
-          if recipient_id == participants[j].id && created_at > 3.years.ago
+          if recipient_id == @participants[j].id && Time.zone.now.year - created_at.year < 3
             graph[i][j] = false
             break
           end
         end
 
         # 3. Immediate Family Members cannot select other members of their immediate family.
-        graph[i][j] = false if participants[i].family == participants[j].family
+        graph[i][j] = false if @participants[i].family == @participants[j].family
       end
     end
     graph
   end
 
-  # TODO: Implement Backtrcking (DFS) algorithm to find a valid solution
-  def run_event
+  def ham_cycle
+    path = Array.new(@participants.length, -1)
+    path[0] = 0 # Start from member at position participants[0]
+
+    unless dfs(path, 1)
+      puts 'Solution does not exist'
+      return false
+    end
+
+    path
+  end
+
+  def dfs(path, pos)
+    if pos == @participants.length
+      return true if @graph[path[pos - 1]][path[0]]
+
+      return false
+
+    end
+
+    (1...@participants.length).each do |v|
+      next unless can_exchange?(v, pos, path)
+
+      path[pos] = v
+
+      return true if dfs(path, pos + 1)
+
+      path[pos] = -1
+    end
+
+    false
+  end
+
+  def can_exchange?(v, pos, path)
+    return false unless @graph[path[pos - 1]][v]
+
+    return false if path.include?(v)
+
+    true
   end
 end
