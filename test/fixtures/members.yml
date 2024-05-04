@@ -1,11 +1,139 @@
-first:
-  family: first
-  name: First member
+david:
+  family: hernandez_aguirre
+  name: David
 
-second:
-  family: first
-  name: Second member
+ramon:
+  family: hernandez_aguirre
+  name: Ramón
 
-third:
-  family: first
-  name: Third member
+aurora:
+  family: hernandez_aguirre
+  name: Aurora
+
+ivan:
+  family: hernandez_aguirre
+  name: Iván
+
+dafne:
+  family: hernandez_aguirre
+  name: Dafne
+
+moncho:
+  family: hernandez_aguirre
+  name: Moncho
+
+isaac:
+  family: alfaro_aguirre
+  name: Isaac
+
+aracely:
+  family: alfaro_aguirre
+  name: Aracely
+
+issac_jr:
+  family: alfaro_aguirre
+  name: Issac Jr
+
+saul:
+  family: alfaro_aguirre
+  name: Saúl
+
+andre:
+  family: alfaro_aguirre
+  name: André
+
+armando:
+  family: pruneda_aguirre
+  name: Armando
+
+juany:
+  family: pruneda_aguirre
+  name: Juany
+
+armandito:
+  family: pruneda_aguirre
+  name: Armandito
+
+argenis:
+  family: pruneda_aguirre
+  name: Argenis
+
+nancy:
+  family: pruneda_aguirre
+  name: Nancy
+
+walter:
+  family: galan_aguirre
+  name: Walter
+
+francisca:
+  family: galan_aguirre
+  name: Francisca
+
+walter_jr:
+  family: galan_aguirre
+  name: Walter Jr
+
+roy:
+  family: galan_aguirre
+  name: Roy
+
+lily:
+  family: galan_aguirre
+  name: Lily
+
+jose:
+  family: hernandez_zertuche
+  name: José
+
+sandra:
+  family: hernandez_zertuche
+  name: Sandra
+
+beto:
+  family: hernandez_zertuche
+  name: Beto
+
+daniela:
+  family: hernandez_zertuche
+  name: Daniela
+
+checo:
+  family: hernandez_zertuche
+  name: Checo
+
+francisco:
+  family: hernandez_espinoza
+  name: Francisco
+
+erika:
+  family: hernandez_espinoza
+  name: Erika
+
+frankie:
+  family: hernandez_espinoza
+  name: Frankie
+
+raul:
+  family: hernandez_espinoza
+  name: Raúl
+
+erik:
+  family: hernandez_espinoza
+  name: Erik
+
+chuy:
+  family: martinez_hernandez
+  name: Chuy
+
+wendy:
+  family: martinez_hernandez
+  name: Wendy
+
+kevin:
+  family: martinez_hernandez
+  name: Kevin
+
+eileen:
+  family: martinez_hernandez
+  name: Eileen
