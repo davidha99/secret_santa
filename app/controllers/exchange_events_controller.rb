@@ -8,9 +8,9 @@ class ExchangeEventsController < ApplicationController
   def new
     exchange_event = ExchangeEvent.new
     if exchange_event.save
-      redirect_to exchange_events_path, notice: 'Exchange event was successfully created.'
+      redirect_to exchange_events_path, notice: 'Secret Santa event was successfully created.'
     else
-      redirect_to families_path, notice: 'Could not create exchange event.'
+      redirect_to exchange_events_path, notice: "You've already created a Secret Santa event for this year."
     end
   end
 
@@ -20,7 +20,7 @@ class ExchangeEventsController < ApplicationController
   def destroy
     @exchange_event.destroy
 
-    redirecto_to exchange_events_path, notice: 'Exchange event was successfully destroyed.'
+    redirect_to exchange_events_path, notice: 'Secret Santa event was successfully destroyed.'
   end
 
   private
