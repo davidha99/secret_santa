@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :exchange_events, except: %i[new edit update]
+  root 'families#index'
+
+  resources :exchange_events, except: %i[edit update]
   resources :families do
     resources :members, except: %i[index show]
   end

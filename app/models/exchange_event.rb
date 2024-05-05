@@ -1,6 +1,13 @@
 class ExchangeEvent < ApplicationRecord
   has_many :exchanges, dependent: :destroy, inverse_of: :exchange_event
-  after_save :run
+  around_save :create_exchange_event
+
+  def create_exchange_event
+    ExchangeEvent.transaction do
+      yield
+      run
+    end
+  end
 
   private
 
@@ -50,8 +57,8 @@ class ExchangeEvent < ApplicationRecord
     path[0] = 0 # Start from member at position participants[0]
 
     unless dfs(path, 1)
-      puts 'Solution does not exist'
-      return false
+      puts 'No exchange path found'
+      raise RaiseActiveRecord::Rollback
     end
 
     path

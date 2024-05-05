@@ -1,20 +1,20 @@
-class ExchangeEventController < ApplicationController
+class ExchangeEventsController < ApplicationController
   before_action :set_exchange_event, only: %i[show destroy]
 
   def index
     @exchange_events = ExchangeEvent.all
   end
 
-  def show
-  end
-
-  def create
+  def new
     exchange_event = ExchangeEvent.new
     if exchange_event.save
-      exchange_event.run
+      redirect_to exchange_events_path, notice: 'Exchange event was successfully created.'
     else
-      reditect_to families_path, notice: 'Could not create exchange event.'
+      redirect_to families_path, notice: 'Could not create exchange event.'
     end
+  end
+
+  def show
   end
 
   def destroy
