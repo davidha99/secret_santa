@@ -4,12 +4,18 @@ class ExchangeEvent < ApplicationRecord
 
   def create_exchange_event
     ExchangeEvent.transaction do
+      raise ActiveRecord::Rollback if one_exists_in_current_year?
+
       yield
       run
     end
   end
 
   private
+
+  def one_exists_in_current_year?
+    ExchangeEvent.where('extract(year from created_at) = ?', Time.zone.now.year).exists?
+  end
 
   def run
     @participants = Member.includes(:family, :exchanges)
