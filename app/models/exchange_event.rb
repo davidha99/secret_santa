@@ -25,8 +25,8 @@ class ExchangeEvent < ApplicationRecord
   end
 
   def create_exchanges
-    @path.each do |s|
-      r = @path[s + 1] || @path[0]
+    @path.each_with_index do |s, i|
+      r = @path[i + 1] || @path[0]
       Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r])
     end
   end
