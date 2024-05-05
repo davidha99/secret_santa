@@ -1,0 +1,19 @@
+<div class="exchange_event">
+  <div class="exchange_event__header">
+    <h2 class="exchange_event__title">
+      <%= exchange_event.created_at.year %>
+    </h2>
+    <div class="exchange_event__actions">
+      <%= button_to "Delete", exchange_event_path(exchange_event), method: :delete, class: "btn btn--light" %>
+    </div>
+  </div>
+  <div class="exchange_event__body">
+    <div class="exchange exchange--header">
+      <div class="exchange__sender">Sender</div>
+      <div class="exchange__recipient">Recipient</div>
+    </div>
+
+    <%= render exchange_event.exchanges %>
+  </div>
+
+</div>
