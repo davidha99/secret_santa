@@ -1,7 +1,7 @@
 <div class="container">
   <div class="header">
     <h1>My secret santa events</h1>
-    <%= link_to "Generate Secret Santas", new_exchange_event_path, class: "btn btn--primary" %>
+    <%= link_to "Generate Secret Santas", new_exchange_event_path, data: { turbo: false }, class: "btn btn--primary" %>
   </div>
 
   <% if @exchange_events.none? %>
