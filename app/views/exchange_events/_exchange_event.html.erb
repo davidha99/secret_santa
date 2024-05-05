@@ -8,8 +8,12 @@
     </div>
   </div>
   <div class="exchange_event__body">
-    <div class="exchange_event__footer">
+    <div class="exchange exchange--header">
+      <div class="exchange__sender">Sender</div>
+      <div class="exchange__recipient">Recipient</div>
     </div>
+
+    <%= render exchange_event.exchanges %>
   </div>
 
 </div>

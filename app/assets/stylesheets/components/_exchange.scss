@@ -1,0 +1,59 @@
+.exchange {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  background-color: var(--color-white);
+
+  gap: var(--space-xs);
+  margin-bottom: var(--space-s);
+  padding: var(--space-xs);
+  border-radius: var(--border-radius);
+
+  > * {
+    margin-bottom: 0;
+  }
+
+  &__sender {
+    flex: 1 1 100%;
+    font-weight: bold;
+
+    @include media(tabletAndUp) {
+      flex: 1 1 0;
+    }
+  }
+
+  &__recipient {
+    flex: 1;
+    display: none;
+
+    @include media(tabletAndUp) {
+      display: revert;
+      flex: 0 0 7rem;
+    }
+  }
+
+  &--form {
+    box-shadow: var(--shadow-small);
+
+    .member__name {
+      display: block;
+    }
+  }
+
+  &--header {
+    display: none;
+    background-color: var(--color-light);
+    margin-bottom: var(--space-s);
+
+    @include media(tabletAndUp) {
+      display: flex;
+    }
+
+    & > * {
+      font-size: var(--font-size-s);
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}
