@@ -31,7 +31,7 @@ Make sure you follow these steps in order to set up a clone on your local machin
 
 ## Initial Installations
 
-Make sure you have Ruby and Ruby on Rails in your machine. Here are some great resources by [The Odin Project](https://www.theodinproject.com/) to get you started:
+Make sure you have Ruby, Ruby on Rails and Postgres in your machine. Here are some great resources by [The Odin Project](https://www.theodinproject.com/) to get you started:
 
 - [Installing Ruby](https://www.theodinproject.com/lessons/ruby-installing-ruby)
 - Install Rails by following steps 1.1 and 1.2 in [your first Rails app](https://www.theodinproject.com/lessons/ruby-on-rails-installing-rails#your-first-rails-app)
