@@ -94,7 +94,7 @@ POSTGRES_PASSWORD: "your-password-here"
 These JavaScript modules (npm packages) are required
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Create the Database
