@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_06_000320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.integer "year", null: false
     t.index ["user_id"], name: "index_exchange_events_on_user_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_06_000320) do
     t.bigint "recipient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year", null: false
     t.index ["exchange_event_id"], name: "index_exchanges_on_exchange_event_id"
     t.index ["recipient_id"], name: "index_exchanges_on_recipient_id"
     t.index ["sender_id"], name: "index_exchanges_on_sender_id"
