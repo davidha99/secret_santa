@@ -4,7 +4,6 @@
 
 - [Setting Up Your Local Clone](#setting-up-your-local-clone)
 - [Initial Installations](#initial-installations)
-- [Setup Up DotEnv](#set-up-dotenv)
 - [Install Gems and Migrate the Database](#install-gems-and-migrate-the-database)
 - [Create the Database](#create-the-database)
 - [Seed the Database](#seed-the-database)
@@ -33,31 +32,8 @@ Make sure you have Ruby and Ruby on Rails in your machine. Here are some great r
 
 - [Installing Ruby](https://www.theodinproject.com/lessons/ruby-installing-ruby)
 - Install Rails by following steps 1.1 and 1.2 in [your first Rails app](https://www.theodinproject.com/lessons/ruby-on-rails-installing-rails#your-first-rails-app)
-- Follow the instructions from one of the following operating system specific guides:
-  - [Linux Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/Linux-Installation-Guide)
-  - [Mac Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/OSX-Installation-Guide)
-
 
 > By the way, [The Odin Project](https://www.theodinproject.com/) is a great resource to learn about Full Stack Development. The community behind this project is really great and supportive, [I recently started to contibute](https://github.com/TheOdinProject/theodinproject/pull/4513) because I really like it and want to see it grow more and more 🚀
-
-## Set Up DotEnv
-
-Secret Santa uses the [dotenv](https://github.com/bkeepers/dotenv) gem to manage secrets. We will need to make a copy of the `env.sample` file (name it `.env`) and add all our secrets to the new file.
-
-```bash
-$ cp env.sample .env
-```
-
-Then edit the newly created `.env` file to include your Postgres Username and Password.
-
-```yaml
----
-#------------------------#
-# DATABASE CONFIGURATION #
-#------------------------#
-POSTGRES_USERNAME: "your-username"
-POSTGRES_PASSWORD: "your-password-here"
-```
 
 ## Install Gems and Migrate the Database
 
