@@ -1,24 +1,109 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of Contents
 
-Things you may want to cover:
+- [Setting Up Your Local Clone](#setting-up-your-local-clone)
+- [Initial Installations](#initial-installations)
+- [Setup Up DotEnv](#set-up-dotenv)
+- [Install Gems and Migrate the Database](#install-gems-and-migrate-the-database)
+- [Create the Database](#create-the-database)
+- [Seed the Database](#seed-the-database)
+- [Start the Server](#start-the-server)
 
-* Ruby version
+## Setting Up Your Local Clone
 
-* System dependencies
+Make sure you follow these steps in order to set up a clone on your local machine:
 
-* Configuration
+1. Fork the repo on to your own GitHub account. If you don't know how to do so, follow the GitHub documentation on how to [fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+2. Clone the forked repo to your local machine with one of the commands below. Be sure the `<your username>` text is replaced with your actual GitHub username, and the `<repo name>` with the actual repo name. You can also read the GitHub documentation on [cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-* Database creation
+   ```bash
+   # If you have SSH set up with Git:
+   git clone git@github.com:<your username>/<repo name>.git
+   # Otherwise for HTTPS:
+   git clone https://github.com/<your username>/<repo name>.git
 
-* Database initialization
+   # An example:
+   git clone git@github.com:RandomUsername/css-exercises.git
+   ```
 
-* How to run the test suite
+## Initial Installations
 
-* Services (job queues, cache servers, search engines, etc.)
+Make sure you have Ruby and Ruby on Rails in your machine. Here are some great resources by [The Odin Project](https://www.theodinproject.com/) to get you started:
 
-* Deployment instructions
+- [Installing Ruby](https://www.theodinproject.com/lessons/ruby-installing-ruby)
+- Install Rails by following steps 1.1 and 1.2 in [your first Rails app](https://www.theodinproject.com/lessons/ruby-on-rails-installing-rails#your-first-rails-app)
+- Follow the instructions from one of the following operating system specific guides:
+  - [Linux Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/Linux-Installation-Guide)
+  - [Mac Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/OSX-Installation-Guide)
 
-* ...
+## Set Up DotEnv
+
+Secret Santa uses the [dotenv](https://github.com/bkeepers/dotenv) gem to manage secrets. We will need to make a copy of the `env.sample` file (name it `.env`) and add all our secrets to the new file.
+
+```bash
+$ cp env.sample .env
+```
+
+Then edit the newly created `.env` file to include your Postgres Username and Password.
+
+```yaml
+---
+#------------------------#
+# DATABASE CONFIGURATION #
+#------------------------#
+POSTGRES_USERNAME: "your-username"
+POSTGRES_PASSWORD: "your-password-here"
+```
+
+## Install Gems and Migrate the Database
+
+Next, install the project's gems:
+
+```
+$ bundle install
+```
+
+**Note: If you are using **Postgres.App**, you may encounter an error installing the `pg` gem. This is likely due to a PATH issue where your pg_config is unable to be found. If you receive an error stating that this gem was not installed, you will need to run the following.**
+
+```bash
+find /Applications -name pg_config
+```
+
+Then save the path it returns, and then run:
+
+```bash
+gem install pg -- --with-pg-config=YOUR_PATH_HERE
+```
+
+**Note: If `bundle install` doesn't work and you get a "rbenv version" error of some kind, try running the following command to set your Ruby version in the project.**
+
+```bash
+rbenv local 2.7.2
+```
+
+## Create the Database
+
+When bundle and yarn have finished installing everything, it's time to get the database set up. To create the database and load the schema:
+
+```
+$ rails db:create
+$ rails db:environment:set RAILS_ENV=development
+$ rails db:schema:load
+```
+
+## Seed the Database
+
+Next you need to seed the database with some data like families, members and santa secret events.
+
+```
+$ rails db:seed
+```
+
+## Start the Server
+
+```bash
+$ bin/dev
+```
+
+Then visit [http://localhost:3000](http://localhost:3000) to view the app in your browser!
