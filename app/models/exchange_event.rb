@@ -1,10 +1,12 @@
 class ExchangeEvent < ApplicationRecord
   has_many :exchanges, dependent: :destroy, inverse_of: :exchange_event
   belongs_to :user, inverse_of: :exchange_events
+  validates :year, uniqueness: { scope: :user }
 
   def run(participants)
     ExchangeEvent.transaction do
-      save
+      raise ActiveRecord::Rollback unless save
+
       @participants = participants
       @graph = build_graph
       @path = ham_cycle
@@ -54,8 +56,8 @@ class ExchangeEvent < ApplicationRecord
     path[0] = 0 # Start from member at position participants[0]
 
     unless dfs(path, 1)
-      puts 'No exchange path found'
-      raise RaiseActiveRecord::Rollback
+      errors.add(:base, 'No exchanges are possible with current members')
+      raise ActiveRecord::Rollback
     end
 
     path
