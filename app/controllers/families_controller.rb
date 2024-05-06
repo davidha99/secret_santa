@@ -2,11 +2,11 @@ class FamiliesController < ApplicationController
   before_action :set_family, only: %i[show edit update destroy]
 
   def index
-    @families = Family.ordered
+    @families = Family.where(user: current_user)
   end
 
   def show
-    @members = @family.members.ordered
+    @members = @family.members
   end
 
   def new
@@ -57,6 +57,6 @@ class FamiliesController < ApplicationController
   end
 
   def family_params
-    params.require(:family).permit(:name)
+    params.require(:family).permit(:name).merge(user: current_user)
   end
 end

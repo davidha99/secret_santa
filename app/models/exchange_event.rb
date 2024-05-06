@@ -1,13 +1,14 @@
 class ExchangeEvent < ApplicationRecord
   has_many :exchanges, dependent: :destroy, inverse_of: :exchange_event
-  around_save :create_exchange_event
+  belongs_to :user, inverse_of: :exchange_events
 
-  def create_exchange_event
+  def run(participants)
     ExchangeEvent.transaction do
-      raise ActiveRecord::Rollback if one_exists_in_current_year?
-
-      yield
-      run
+      save
+      @participants = participants
+      @graph = build_graph
+      @path = ham_cycle
+      create_exchanges
     end
   end
 
@@ -15,13 +16,6 @@ class ExchangeEvent < ApplicationRecord
 
   def one_exists_in_current_year?
     ExchangeEvent.where('extract(year from created_at) = ?', Time.zone.now.year).exists?
-  end
-
-  def run
-    @participants = Member.includes(:family, :exchanges)
-    @graph = build_graph
-    @path = ham_cycle
-    create_exchanges
   end
 
   def create_exchanges

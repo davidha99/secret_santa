@@ -2,12 +2,14 @@ class ExchangeEventsController < ApplicationController
   before_action :set_exchange_event, only: %i[show destroy]
 
   def index
-    @exchange_events = ExchangeEvent.all
+    @exchange_events = ExchangeEvent.where(user: current_user)
   end
 
   def new
-    exchange_event = ExchangeEvent.new
-    if exchange_event.save
+    if ExchangeEvent.where(user: current_user, year: Time.zone.now.year).blank?
+      exchange_event = ExchangeEvent.new(user: current_user, year: Time.zone.now.year)
+      participants = Member.where(user: current_user).includes(:family, :exchanges)
+      exchange_event.run(participants)
       redirect_to exchange_events_path, notice: 'Secret Santa event was successfully created.'
     else
       redirect_to exchange_events_path, notice: "You've already created a Secret Santa event for this year."

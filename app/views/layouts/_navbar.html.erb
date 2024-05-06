@@ -1,9 +1,13 @@
 <header class="navbar">
-  <div class="navbar__link navbar__right">
-    <%= link_to "Home", root_path, data: { turbo: false } %>
-  </div>
-  <div class="navbar__link">
-    <%= link_to "My exchanges", exchange_events_path, data: { turbo: false } %>
-  </div>
-  <!-- <%= link_to "Sign out", new_exchange_event_path, class: "btn btn--dark navbar--right" %> -->
+  <% if user_signed_in? %>
+    <div class="navbar__link navbar__right">
+      <%= link_to "My Fam", families_path, data: { turbo: false } %>
+    </div>
+    <div class="navbar__link">
+      <%= link_to "My exchanges", exchange_events_path, data: { turbo: false } %>
+    </div>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn--dark" %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark navbar__right" %>
+  <% end %>
 </header>
