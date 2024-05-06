@@ -5,9 +5,11 @@
 - [Setting Up Your Local Clone](#setting-up-your-local-clone)
 - [Initial Installations](#initial-installations)
 - [Install Gems and Migrate the Database](#install-gems-and-migrate-the-database)
+- [Install Javascript Modules](install-javascript-modules)
 - [Create the Database](#create-the-database)
 - [Seed the Database](#seed-the-database)
 - [Start the Server](#start-the-server)
+   - [Login](#login)
 
 ## Setting Up Your Local Clone
 
@@ -67,9 +69,17 @@ gem install pg -- --with-pg-config=YOUR_PATH_HERE
 rbenv local 2.7.2
 ```
 
+## Install Javascript Modules
+
+These JavaScript modules (npm packages) are required
+
+```bash
+$ npm install
+```
+
 ## Create the Database
 
-When bundle have finished installing everything, it's time to get the database set up. To create the database and load the schema:
+When bundle has finished installing everything, it's time to get the database set up. To create the database and load the schema:
 
 ```
 $ rails db:create
@@ -85,6 +95,15 @@ Next you need to seed the database with some data like families, members and san
 $ rails db:seed
 ```
 
+## Run Tests
+
+Make sure all of these tests pass.
+
+```bash
+$ rails test:models
+$ rails test:system
+```
+
 ## Start the Server
 
 ```bash
@@ -92,3 +111,7 @@ $ bin/dev
 ```
 
 Then visit [http://localhost:3000](http://localhost:3000) to view the app in your browser!
+
+### Login
+
+You can find some user credentials in `test/fixtures/users.yml`.
