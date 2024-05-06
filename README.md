@@ -37,9 +37,15 @@ Make sure you have Ruby and Ruby on Rails in your machine. Here are some great r
 
 ## Install Gems and Migrate the Database
 
+Move inside the project directory:
+
+```bash
+$ cd secret_santa
+```
+
 Next, install the project's gems:
 
-```
+```bash
 $ bundle install
 ```
 
