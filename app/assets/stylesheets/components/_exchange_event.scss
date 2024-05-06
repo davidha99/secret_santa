@@ -27,8 +27,7 @@
     background-color: var(--color-white);
     box-shadow: var(--shadow-small);
     margin-top: var(--space-xs);
-    padding: var(--space-xxs);
-    padding-top: 0;
+    padding: var(--space-m);
 
     @include media(tabletAndUp) {
       padding: var(--space-m);

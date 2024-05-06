@@ -1,10 +1,13 @@
 <header class="navbar">
+  <div class="navbar__brand">
+    <%= link_to "SSGen", root_path, class: "navbar__brand__link" %>
+  </div>
   <% if user_signed_in? %>
     <div class="navbar__link navbar__right">
       <%= link_to "My Fam", families_path, data: { turbo: false } %>
     </div>
     <div class="navbar__link">
-      <%= link_to "My exchanges", exchange_events_path, data: { turbo: false } %>
+      <%= link_to "My Secret Santas", exchange_events_path, data: { turbo: false } %>
     </div>
     <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn--dark" %>
   <% else %>

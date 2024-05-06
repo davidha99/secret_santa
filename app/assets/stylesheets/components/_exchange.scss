@@ -1,7 +1,6 @@
 .exchange {
   display: flex;
   align-items: start;
-  flex-wrap: wrap;
   background-color: var(--color-white);
 
   gap: var(--space-xs);
@@ -24,7 +23,6 @@
 
   &__recipient {
     flex: 1;
-    display: none;
 
     @include media(tabletAndUp) {
       display: revert;
@@ -41,7 +39,6 @@
   }
 
   &--header {
-    display: none;
     background-color: var(--color-light);
     margin-bottom: var(--space-s);
 
