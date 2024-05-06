@@ -133,6 +133,10 @@ $ bin/dev
 
 Then visit [http://localhost:3000](http://localhost:3000) to view the app in your browser!
 
+### Login
+
+You can find some user credentials in `test/fixtures/users.yml`.
+
 ## IMPORTANT: Creating Secret Santas for Testing Functionality
 
 There's a validation that prevents the user from creating multiple Secret Santa events in the same year, and there's no option for selecting a year... my bad 😅. For now, you can go to `/app/controllers/exchange_events_controller.rb` file and change `Time.zone.now.year` in line 9 to the year you wish.
@@ -145,7 +149,3 @@ There's a validation that prevents the user from creating multiple Secret Santa 
 exchange_event = ExchangeEvent.new(user: current_user, year: Time.zone.now.year)
 exchange_event = ExchangeEvent.new(user: current_user, year: 2020)
 ```
-
-### Login
-
-You can find some user credentials in `test/fixtures/users.yml`.
