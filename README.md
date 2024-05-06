@@ -139,13 +139,13 @@ You can find some user credentials in `test/fixtures/users.yml`.
 
 ## IMPORTANT: Creating Secret Santas for Testing Functionality
 
-There's a validation that prevents the user from creating multiple Secret Santa events in the same year, and there's no option for selecting a year... my bad 😅. For now, you can go to `/app/controllers/exchange_events_controller.rb` file and change `Time.zone.now.year` in line 9 to the year you wish.
+There's a validation that prevents the user from creating multiple Secret Santa events in the same year, and there's no option for selecting a year... my bad 😅. For now, you can go to `/app/controllers/exchange_events_controller.rb` file and change `Time.zone.now.year` (line 9) to the year you wish.
 
 ```rb
 # /app/controllers/exchange_events_controller.rb
 # line 9, inside the new method
 
 # Example
-exchange_event = ExchangeEvent.new(user: current_user, year: Time.zone.now.year)
-exchange_event = ExchangeEvent.new(user: current_user, year: 2020)
+year = Time.zone.now.year
+year = 2020
 ```

@@ -3,11 +3,12 @@ class ExchangeEvent < ApplicationRecord
   belongs_to :user, inverse_of: :exchange_events
   validates :year, uniqueness: { scope: :user }
 
-  def run(participants)
+  def run(participants, year)
     ExchangeEvent.transaction do
       raise ActiveRecord::Rollback unless save
 
       @participants = participants
+      @year = year
       @graph = build_graph
       @path = ham_cycle
       create_exchanges
@@ -17,10 +18,9 @@ class ExchangeEvent < ApplicationRecord
   private
 
   def create_exchanges
-    year = Time.zone.now.year
     @path.each_with_index do |s, i|
       r = @path[i + 1] || @path[0]
-      Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r], year: year)
+      Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r], year: @year)
     end
   end
 

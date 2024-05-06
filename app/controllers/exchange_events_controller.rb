@@ -6,10 +6,11 @@ class ExchangeEventsController < ApplicationController
   end
 
   def new
-    exchange_event = ExchangeEvent.new(user: current_user, year: Time.zone.now.year)
+    year = 2000
+    exchange_event = ExchangeEvent.new(user: current_user, year: year)
     participants = Member.where(user: current_user).includes(:family, :exchanges_as_sender)
 
-    if exchange_event.run(participants)
+    if exchange_event.run(participants, year)
       redirect_to exchange_events_path, notice: 'Secret Santa event was successfully created.'
     else
       redirect_to exchange_events_path, notice: exchange_event.errors.full_messages.join(', ')
