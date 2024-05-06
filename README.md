@@ -4,12 +4,13 @@
 
 - [Setting Up Your Local Clone](#setting-up-your-local-clone)
 - [Initial Installations](#initial-installations)
+- [Set Up DotEnv](#set-up-dotenv)
 - [Install Gems and Migrate the Database](#install-gems-and-migrate-the-database)
 - [Install Javascript Modules](install-javascript-modules)
 - [Create the Database](#create-the-database)
 - [Seed the Database](#seed-the-database)
 - [Start the Server](#start-the-server)
-   - [Login](#login)
+  - [Login](#login)
 
 ## Setting Up Your Local Clone
 
@@ -67,6 +68,25 @@ gem install pg -- --with-pg-config=YOUR_PATH_HERE
 
 ```bash
 rbenv local 2.7.2
+```
+
+## Set Up DotEnv
+
+Secret Santa uses the [dotenv](https://github.com/bkeepers/dotenv) gem to manage secrets. We will need to make a copy of the `env.sample` file (name it `.env`) and add all our secrets to the new file.
+
+```bash
+$ cp env.sample .env
+```
+
+Then edit the newly created `.env` file to include your Postgres Username and Password.
+
+```yaml
+---
+#------------------------#
+# DATABASE CONFIGURATION #
+#------------------------#
+POSTGRES_USERNAME: "your-username"
+POSTGRES_PASSWORD: "your-password-here"
 ```
 
 ## Install Javascript Modules
