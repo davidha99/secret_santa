@@ -1,11 +1,305 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+exchange_1:
+  exchange_event: 2023
+  sender: aracely
+  recipient: aurora
+  year: 2023
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+exchange_2:
+  exchange_event: 2023
+  sender: aurora
+  recipient: isaac_jr
+  year: 2023
+
+exchange_3:
+  exchange_event: 2023
+  sender: isaac_jr
+  recipient: ivan
+  year: 2023
+
+exchange_4:
+  exchange_event: 2023
+  sender: ivan
+  recipient: saul
+  year: 2023
+
+exchange_5:
+  exchange_event: 2023
+  sender: saul
+  recipient: dafne
+  year: 2023
+
+exchange_6:
+  exchange_event: 2023
+  sender: dafne
+  recipient: andre
+  year: 2023
+
+exchange_7:
+  exchange_event: 2023
+  sender: andre
+  recipient: moncho
+  year: 2023
+
+exchange_8:
+  exchange_event: 2023
+  sender: moncho
+  recipient: armando
+  year: 2023
+
+exchange_9:
+  exchange_event: 2023
+  sender: armando
+  recipient: walter
+  year: 2023
+
+exchange_10:
+  exchange_event: 2023
+  sender: walter
+  recipient: juany
+  year: 2023
+
+exchange_11:
+  exchange_event: 2023
+  sender: juany
+  recipient: francisca
+  year: 2023
+
+exchange_12:
+  exchange_event: 2023
+  sender: francisca
+  recipient: armandito
+  year: 2023
+
+exchange_13:
+  exchange_event: 2023
+  sender: armandito
+  recipient: walter_jr
+  year: 2023
+
+exchange_14:
+  exchange_event: 2023
+  sender: walter_jr
+  recipient: argenis
+  year: 2023
+
+exchange_15:
+  exchange_event: 2023
+  sender: argenis
+  recipient: roy
+  year: 2023
+
+exchange_16:
+  exchange_event: 2023
+  sender: roy
+  recipient: nancy
+  year: 2023
+
+exchange_17:
+  exchange_event: 2023
+  sender: nancy
+  recipient: lily
+  year: 2023
+
+exchange_18:
+  exchange_event: 2023
+  sender: lily
+  recipient: jose
+  year: 2023
+
+exchange_19:
+  exchange_event: 2023
+  sender: jose
+  recipient: francisco
+  year: 2023
+
+exchange_20:
+  exchange_event: 2023
+  sender: francisco
+  recipient: sandra
+  year: 2023
+
+exchange_21:
+  exchange_event: 2023
+  sender: sandra
+  recipient: erika
+  year: 2023
+
+exchange_22:
+  exchange_event: 2023
+  sender: erika
+  recipient: beto
+  year: 2023
+
+exchange_23:
+  exchange_event: 2023
+  sender: beto
+  recipient: frankie
+  year: 2023
+
+exchange_24:
+  exchange_event: 2023
+  sender: frankie
+  recipient: daniela
+  year: 2023
+
+exchange_25:
+  exchange_event: 2023
+  sender: daniela
+  recipient: chuy
+  year: 2023
+
+exchange_26:
+  exchange_event: 2023
+  sender: chuy
+  recipient: checo
+  year: 2023
+
+exchange_27:
+  exchange_event: 2023
+  sender: checo
+  recipient: wendy
+  year: 2023
+
+exchange_28:
+  exchange_event: 2023
+  sender: wendy
+  recipient: raul
+  year: 2023
+
+exchange_29:
+  exchange_event: 2023
+  sender: raul
+  recipient: kevin
+  year: 2023
+
+exchange_30:
+  exchange_event: 2023
+  sender: kevin
+  recipient: erik
+  year: 2023
+
+exchange_31:
+  exchange_event: 2023
+  sender: erik
+  recipient: eileen
+  year: 2023
+
+exchange_32:
+  exchange_event: 2023
+  sender: eileen
+  recipient: david
+  year: 2023
+
+exchange_33:
+  exchange_event: 2023
+  sender: david
+  recipient: isaac
+  year: 2023
+
+exchange_34:
+  exchange_event: 2023
+  sender: isaac
+  recipient: ramon
+  year: 2023
+
+exchange_35:
+  exchange_event: 2023
+  sender: ramon
+  recipient: aracely
+  year: 2023
+
+exchange_36:
+  exchange_event: 2022
+  sender: member_1
+  recipient: member_5
+  year: 2022
+
+exchange_37:
+  exchange_event: 2022
+  sender: member_5
+  recipient: member_9
+  year: 2022
+
+exchange_38:
+  exchange_event: 2022
+  sender: member_9
+  recipient: member_13
+  year: 2022
+
+exchange_39:
+  exchange_event: 2022
+  sender: member_13
+  recipient: member_1
+  year: 2022
+
+exchange_40:
+  exchange_event: 2022
+  sender: member_2
+  recipient: member_6
+  year: 2022
+
+exchange_41:
+  exchange_event: 2022
+  sender: member_6
+  recipient: member_10
+  year: 2022
+
+exchange_42:
+  exchange_event: 2022
+  sender: member_10
+  recipient: member_14
+  year: 2022
+
+exchange_43:
+  exchange_event: 2022
+  sender: member_14
+  recipient: member_2
+  year: 2022
+
+exchange_44:
+  exchange_event: 2022
+  sender: member_3
+  recipient: member_7
+  year: 2022
+
+exchange_45:
+  exchange_event: 2022
+  sender: member_7
+  recipient: member_11
+  year: 2022
+
+exchange_46:
+  exchange_event: 2022
+  sender: member_11
+  recipient: member_15
+  year: 2022
+
+exchange_47:
+  exchange_event: 2022
+  sender: member_15
+  recipient: member_3
+  year: 2022
+
+exchange_48:
+  exchange_event: 2022
+  sender: member_4
+  recipient: member_8
+  year: 2022
+
+exchange_49:
+  exchange_event: 2022
+  sender: member_8
+  recipient: member_12
+  year: 2022
+
+exchange_50:
+  exchange_event: 2022
+  sender: member_12
+  recipient: member_16
+  year: 2022
+
+exchange_51:
+  exchange_event: 2022
+  sender: member_16
+  recipient: member_4
+  year: 2022

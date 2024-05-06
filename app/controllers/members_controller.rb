@@ -49,7 +49,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:name)
+    params.require(:member).permit(:name).merge(user: current_user)
   end
 
   def set_family

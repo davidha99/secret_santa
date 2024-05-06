@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'families#index'
+  devise_for :users
+  root 'pages#home'
 
   resources :exchange_events, except: %i[edit update]
   resources :families do

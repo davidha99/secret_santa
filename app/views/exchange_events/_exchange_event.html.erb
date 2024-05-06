@@ -1,7 +1,7 @@
 <div class="exchange_event">
   <div class="exchange_event__header">
     <h2 class="exchange_event__title">
-      <%= exchange_event.created_at.year %>
+      <%= exchange_event.year %>
     </h2>
     <div class="exchange_event__actions">
       <%= button_to "Delete", exchange_event_path(exchange_event), method: :delete, class: "btn btn--light" %>

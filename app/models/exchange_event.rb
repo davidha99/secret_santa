@@ -1,33 +1,24 @@
 class ExchangeEvent < ApplicationRecord
   has_many :exchanges, dependent: :destroy, inverse_of: :exchange_event
-  around_save :create_exchange_event
+  belongs_to :user, inverse_of: :exchange_events
 
-  def create_exchange_event
+  def run(participants)
     ExchangeEvent.transaction do
-      raise ActiveRecord::Rollback if one_exists_in_current_year?
-
-      yield
-      run
+      save
+      @participants = participants
+      @graph = build_graph
+      @path = ham_cycle
+      create_exchanges
     end
   end
 
   private
 
-  def one_exists_in_current_year?
-    ExchangeEvent.where('extract(year from created_at) = ?', Time.zone.now.year).exists?
-  end
-
-  def run
-    @participants = Member.includes(:family, :exchanges)
-    @graph = build_graph
-    @path = ham_cycle
-    create_exchanges
-  end
-
   def create_exchanges
+    year = Time.zone.now.year
     @path.each_with_index do |s, i|
       r = @path[i + 1] || @path[0]
-      Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r])
+      Exchange.create(exchange_event: self, sender: @participants[s], recipient: @participants[r], year: year)
     end
   end
 
@@ -43,9 +34,9 @@ class ExchangeEvent < ApplicationRecord
         end
 
         # 2. A family member can only be paired with the same Secret Santa once every three years.
-        exchanges = @participants[i].exchanges.pluck(:recipient_id, :created_at)
-        exchanges.each do |recipient_id, created_at|
-          if recipient_id == @participants[j].id && Time.zone.now.year - created_at.year < 3
+        exchanges = @participants[i].exchanges_as_sender.pluck(:recipient_id, :year)
+        exchanges.each do |recipient_id, year|
+          if recipient_id == @participants[j].id && Time.zone.now.year - year < 3
             graph[i][j] = false
             break
           end
