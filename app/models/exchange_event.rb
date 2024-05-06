@@ -1,6 +1,7 @@
 class ExchangeEvent < ApplicationRecord
   has_many :exchanges, dependent: :destroy, inverse_of: :exchange_event
   belongs_to :user, inverse_of: :exchange_events
+  validates :year, uniqueness: { scope: :user }
 
   def run(participants)
     ExchangeEvent.transaction do
