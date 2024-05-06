@@ -1,6 +1,7 @@
 .member {
   display: flex;
-  align-items: start;
+  align-items: baseline;
+  justify-content: space-between;
   flex-wrap: wrap;
   background-color: var(--color-white);
 
@@ -14,24 +15,14 @@
   }
 
   &__name {
-    flex: 1 1 100%;
     font-weight: bold;
-
-    @include media(tabletAndUp) {
-      flex: 1 1 0;
-    }
   }
 
   &__actions {
     display: flex;
     gap: var(--space-xs);
     order: 2;
-    flex: 1 1 auto;
-
-    @include media(tabletAndUp) {
-      order: revert;
-      flex: 0 0 10rem;
-    }
+    margin-right: calc(var(--space-xs) * -1);
   }
 
   &--form {
@@ -43,7 +34,6 @@
   }
 
   &--header {
-    display: none;
     background-color: var(--color-light);
     margin-bottom: var(--space-s);
 

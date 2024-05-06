@@ -2,7 +2,7 @@ class ExchangeEventsController < ApplicationController
   before_action :set_exchange_event, only: %i[show destroy]
 
   def index
-    @exchange_events = ExchangeEvent.where(user: current_user)
+    @exchange_events = ExchangeEvent.where(user: current_user).order(year: :desc)
   end
 
   def new
