@@ -41,3 +41,7 @@ family_3:
 family_4:
   user: test
   name: Family 4
+
+family_one_fam:
+  user: one_fam
+  name: Family of One Fam
