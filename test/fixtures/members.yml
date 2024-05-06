@@ -253,17 +253,7 @@ member_16:
   name: Member 16
   user: test
 
-member_one_fam_1:
+first:
   family: family_one_fam
   name: Member One Fam 1
-  user: one_fam
-
-member_one_fam_2:
-  family: family_one_fam
-  name: Member One Fam 2
-  user: one_fam
-
-member_one_fam_3:
-  family: family_one_fam
-  name: Member One Fam 3
   user: one_fam

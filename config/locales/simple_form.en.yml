@@ -20,8 +20,8 @@ en:
   helpers:
     submit:
       family:
-        create: Add Fam
+        create: Create Fam
         update: Update Fam
       member:
-        create: Add Member
+        create: Create Member
         update: Update Member

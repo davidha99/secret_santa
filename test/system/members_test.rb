@@ -1,50 +1,43 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class MembersTest < ApplicationSystemTestCase
   setup do
+    login_as users(:one_fam)
     @member = members(:first)
   end
 
-  test "creating a new member" do
-    visit family_members_path
-    assert_selector "h1", text: "Members"
+  test 'creating a new member' do
+    visit families_path
+    assert_selector 'h1', text: 'My Fam'
+    assert_selector 'h3', text: 'MEMBERS'
 
-    click_on "New member"
-    assert_selector "h1", text: "New member"
+    click_on 'Add member'
 
-    fill_in "Name", with: "Member Name"
-    click_on "Create member"
+    fill_in 'Member name', with: 'Rambo'
+    click_on 'Create Member'
 
-    assert_selector "h1", text: "Members"
-    assert_text "Member Name"
+    assert_text 'Rambo'
   end
 
-  test "showing a member" do
-    visit family_members_path
-    click_link @member.name
+  test 'updating a member' do
+    visit families_path
+    assert_selector 'h1', text: 'My Fam'
+    assert_selector 'h3', text: 'MEMBERS'
 
-    assert_selector "h1", text: @member.name
+    click_on 'Edit Member', match: :first
+
+    fill_in 'Member name', with: 'Updated member name'
+    click_on 'Update Member'
+
+    assert_selector 'h3', text: 'MEMBERS'
+    assert_text 'Updated member name'
   end
 
-  test "updating a member" do
-    visit family_members_path
-    assert_selector "h1", text: "Members"
-
-    click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit member"
-
-    fill_in "Name", with: "Updated member"
-    click_on "Update member"
-
-    assert_selector "h1", text: "Members"
-    assert_text "Updated member"
-  end
-
-  test "destroying a member" do
-    visit family_members_path
+  test 'destroying a member' do
+    visit families_path
     assert_text @member.name
 
-    click_on "Delete", match: :first
+    click_on 'Delete Member', match: :first
     assert_no_text @member.name
   end
 end

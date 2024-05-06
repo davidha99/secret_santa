@@ -6,14 +6,14 @@
           <%= family.name %>
         </h2>
         <div class="family__actions">
-          <%= button_to "Delete", family_path(family), method: :delete, class: "btn btn--light" %>
-          <%= link_to "Edit", edit_family_path(family), class: "btn btn--light" %>
+          <%= button_to "Delete Fam", family_path(family), method: :delete, class: "btn btn--light" %>
+          <%= link_to "Edit Fam", edit_family_path(family), class: "btn btn--light" %>
         </div>
       </div>
     <% end %>
     <div class="family__body">
       <div class="member member--header">
-        <div class="member__name">Members</div>
+        <h3 class="member__name">Members</h3>
       </div>
 
       <%= turbo_frame_tag nested_dom_id(family, "members") do %>
