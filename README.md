@@ -37,6 +37,9 @@ Make sure you have Ruby and Ruby on Rails in your machine. Here are some great r
   - [Linux Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/Linux-Installation-Guide)
   - [Mac Installation Guide](https://github.com/TheOdinProject/theodinproject/wiki/OSX-Installation-Guide)
 
+
+> By the way, [The Odin Project](https://www.theodinproject.com/) is a great resource to learn about Full Stack Development. The community behind this project is really great and supportive, [I recently started to contibute](https://github.com/TheOdinProject/theodinproject/pull/4513) because I really like it and want to see it grow more and more 🚀
+
 ## Set Up DotEnv
 
 Secret Santa uses the [dotenv](https://github.com/bkeepers/dotenv) gem to manage secrets. We will need to make a copy of the `env.sample` file (name it `.env`) and add all our secrets to the new file.
@@ -84,7 +87,7 @@ rbenv local 2.7.2
 
 ## Create the Database
 
-When bundle and yarn have finished installing everything, it's time to get the database set up. To create the database and load the schema:
+When bundle have finished installing everything, it's time to get the database set up. To create the database and load the schema:
 
 ```
 $ rails db:create
