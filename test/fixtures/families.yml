@@ -1,20 +1,43 @@
 hernandez_aguirre:
+  user: admin
   name: Hernández Aguirre
 
 alfaro_aguirre:
+  user: admin
   name: Alfaro Aguirre
 
 galan_aguirre:
+  user: admin
   name: Galán Aguirre
 
 pruneda_aguirre:
+  user: admin
   name: Pruneda Aguirre
 
 hernandez_zertuche:
+  user: admin
   name: Hernández Zertuche
 
 hernandez_espinoza:
+  user: admin
   name: Hernández Espinoza
 
 martinez_hernandez:
+  user: admin
   name: Martínez Hernández
+
+family_1:
+  user: test
+  name: Family 1
+
+family_2:
+  user: test
+  name: Family 2
+
+family_3:
+  user: test
+  name: Family 3
+
+family_4:
+  user: test
+  name: Family 4
