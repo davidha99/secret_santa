@@ -6,7 +6,7 @@ class ExchangeEventsController < ApplicationController
   end
 
   def new
-    year = 2000
+    year = Time.zone.now.year
     exchange_event = ExchangeEvent.new(user: current_user, year: year)
     participants = Member.where(user: current_user).includes(:family, :exchanges_as_sender)
 
