@@ -36,9 +36,9 @@ class ExchangeEvent < ApplicationRecord
         end
 
         # 2. A family member can only be paired with the same Secret Santa once every three years.
-        exchanges = @participants[i].exchanges_as_sender.pluck(:recipient_id, :year)
+        exchanges = @participants[i].exchanges_as_sender.where('year < ?', @year).pluck(:recipient_id, :year)
         exchanges.each do |recipient_id, year|
-          if recipient_id == @participants[j].id && Time.zone.now.year - year < 3
+          if recipient_id == @participants[j].id && @year - year < 3
             graph[i][j] = false
             break
           end
