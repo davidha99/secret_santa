@@ -1,0 +1,8 @@
+<%= turbo_stream.remove @exchange_event %>
+<%= render_turbo_stream_flash_messages %>
+
+<% unless @exchange_events.exists? %>
+  <%= turbo_stream.update ExchangeEvent.new do %>
+    <%= render "exchange_events/empty_state" %>
+  <% end %>
+<% end %>

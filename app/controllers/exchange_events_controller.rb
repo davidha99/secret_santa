@@ -6,14 +6,21 @@ class ExchangeEventsController < ApplicationController
   end
 
   def new
-    year = Time.zone.now.year
-    exchange_event = ExchangeEvent.new(user: current_user, year: year)
+    @exchange_event = ExchangeEvent.new
+  end
+
+  def create
+    @exchange_event = ExchangeEvent.new(exchange_event_params)
     participants = Member.where(user: current_user).includes(:family, :exchanges_as_sender)
 
-    if exchange_event.run(participants, year)
-      redirect_to exchange_events_path, notice: 'Secret Santa event was successfully created.'
+    if @exchange_event.run(participants)
+      respond_to do |format|
+        format.html { redirect_to exchange_events_path, notice: 'Secret Santa event was successfully created.' }
+        format.turbo_stream { flash.now[:notice] = 'Secret Santa event was successfully created.' }
+      end
     else
-      redirect_to exchange_events_path, notice: exchange_event.errors.full_messages.join(', ')
+      render :new, status: :unprocessable_entity
+      # redirect_to exchange_events_path, notice: exchange_event.errors.full_messages.join(', ')
     end
   end
 
@@ -21,9 +28,13 @@ class ExchangeEventsController < ApplicationController
   end
 
   def destroy
+    @exchange_events = ExchangeEvent.where(user: current_user)
     @exchange_event.destroy
 
-    redirect_to exchange_events_path, notice: 'Secret Santa event was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to exchange_events_path, notice: 'Secret Santa event was successfully destroyed.' }
+      format.turbo_stream { flash.now[:notice] = 'Secret Santa event was successfully destroyed.' }
+    end
   end
 
   private
@@ -33,6 +44,6 @@ class ExchangeEventsController < ApplicationController
   end
 
   def exchange_event_params
-    params.require(:exchange_event).require(:id)
+    params.require(:exchange_event).permit(:year).merge(user: current_user)
   end
 end

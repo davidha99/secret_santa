@@ -1,12 +1,16 @@
 <div class="container">
   <div class="header">
     <h1>My Secret Santas</h1>
-    <%= link_to "Generate Secret Santas", new_exchange_event_path, data: { turbo: false }, class: "btn btn--primary" %>
+    <%= link_to "Generate Secret Santas", new_exchange_event_path, data: { turbo_frame: dom_id(ExchangeEvent.new) }, class: "btn btn--primary" %>
   </div>
 
-  <% if @exchange_events.none? %>
-    <%= render "exchange_events/empty_state" %>
+  <%= turbo_frame_tag ExchangeEvent.new do %>
+    <% if @exchange_events.none? %>
+      <%= render "exchange_events/empty_state" %>
+    <% end %>
   <% end %>
 
-  <%= render @exchange_events %>
+  <%= turbo_frame_tag "exchange_events", data: { controller: "sorting", sorting_target: "exchangeEvents" } do %>
+    <%= render @exchange_events %>
+  <% end %>
 </div>

@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "exchange_events", @exchange_event %>
+<%= turbo_stream.update ExchangeEvent.new, "" %>
+<%= render_turbo_stream_flash_messages %>

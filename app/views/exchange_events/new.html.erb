@@ -1,0 +1,11 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to secret santa events"), exchange_events_path %>
+
+  <div class="header">
+    <h1>New Secret Santa Event</h1>
+  </div>
+
+  <%= turbo_frame_tag @exchange_event do %>
+    <%= render "form", exchange_event: @exchange_event %>
+  <% end %>
+</main>
