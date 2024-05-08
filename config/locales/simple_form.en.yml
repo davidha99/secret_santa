@@ -10,11 +10,15 @@ en:
         name: Fam name
       member:
         name: Member name
+      exchange_event:
+        year: Year
     labels:
       family:
         name: Family name
       member:
         name: Member name
+      exchange_event:
+        year: Year
     error_notification:
       default_message: "Please review the problems below:"
   helpers:
@@ -25,3 +29,5 @@ en:
       member:
         create: Create Member
         update: Update Member
+      exchange_event:
+        create: Create Secret Santas

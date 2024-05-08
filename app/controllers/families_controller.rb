@@ -41,7 +41,7 @@ class FamiliesController < ApplicationController
   end
 
   def destroy
-    @families = Family.all
+    @families = Family.where(user: current_user)
     @family.destroy
 
     respond_to do |format|
