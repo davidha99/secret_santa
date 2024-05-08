@@ -25,4 +25,10 @@
       border-color: var(--color-primary);
     }
   }
+
+  &__new_user {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
 }

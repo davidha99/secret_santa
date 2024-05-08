@@ -12,7 +12,15 @@ en:
         name: Member name
       exchange_event:
         year: Year
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Confirm Password
     labels:
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Confirm Password
       family:
         name: Family name
       member:
